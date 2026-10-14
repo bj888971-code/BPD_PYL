@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SIAP-BPD · Desa Payo Lebar</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f6f4;--card:#fff;--tx:#16261f;--mu:#62756c;--bd:#dde6e1;--pr:#0f7a55;--pr2:#0a5c40;--ac:#d99a1e;--sb:#0d3b2c;--sbt:#cfe6dc;--dg:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e1714;--card:#16231e;--tx:#e6f0ea;--mu:#8fa69b;--bd:#26372f;--pr:#2fb985;--pr2:#1f8f66;--sb:#091410;--sbt:#a9c4b7}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e1714;--card:#16231e;--tx:#e6f0ea;--mu:#8fa69b;--bd:#26372f;--pr:#2fb985;--pr2:#1f8f66;--sb:#091410;--sbt:#a9c4b7}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.app{display:flex;min-height:100vh}
+aside{width:260px;background:var(--sb);color:var(--sbt);padding:16px 10px;position:sticky;top:0;height:100vh;overflow-y:auto;flex-shrink:0}
+.brand{display:flex;gap:10px;align-items:center;padding:6px 10px 16px;color:#fff}
+.brand b{display:block;font-size:17px}.brand small{color:var(--sbt);font-size:11px}
+.logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--ac),#f2c14e);display:grid;place-items:center;font-size:22px}
+aside h6{margin:14px 10px 4px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+aside a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;color:inherit;text-decoration:none;cursor:pointer;font-size:14px}
+aside a:hover{background:rgba(255,255,255,.08)}aside a.on{background:var(--pr);color:#fff}
+main{flex:1;min-width:0;padding:20px}
+.top{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.top h1{font-size:21px;margin:0;flex:1}
+.burger{display:none}
+button,.btn{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:8px 14px;border-radius:10px;cursor:pointer}
+.pri{background:var(--pr);border-color:var(--pr);color:#fff;font-weight:600}.pri:hover{background:var(--pr2)}
+.sm{padding:4px 9px;font-size:13px}.del{color:var(--dg)}
+.hero{background:linear-gradient(120deg,var(--pr2),var(--pr));color:#fff;border-radius:18px;padding:22px;margin-bottom:16px}
+.hero h2{margin:0 0 4px;font-size:20px}.hero p{margin:0;opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.stat{cursor:pointer;transition:.15s}.stat:hover{transform:translateY(-2px);border-color:var(--pr)}
+.stat .i{font-size:22px}.stat .n{font-size:26px;font-weight:700;line-height:1.1}.stat .l{color:var(--mu);font-size:12.5px}
+.fin{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:16px 0}
+.fin .n{font-size:20px;font-weight:700}.in{color:var(--pr)}.out{color:var(--dg)}
+h3{margin:18px 0 8px;font-size:16px}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top;font-size:14px}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);background:rgba(127,127,127,.06);white-space:nowrap}
+tr:last-child td{border-bottom:0}.emp{padding:32px;text-align:center;color:var(--mu)}
+input,select,textarea{font:inherit;width:100%;padding:9px 11px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx)}
+.tool{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tool input{flex:1;min-width:160px}
+dialog{border:0;border-radius:18px;padding:0;width:min(520px,94vw);background:var(--card);color:var(--tx);max-height:90vh}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog form{padding:20px;display:grid;gap:12px}
+dialog h3{margin:0}label{font-size:13px;color:var(--mu);display:block;margin-bottom:3px}
+.act{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.tag{display:inline-block;padding:1px 9px;border-radius:99px;font-size:12px;background:rgba(15,122,85,.14);color:var(--pr)}
+.tag.r{background:rgba(192,57,43,.14);color:var(--dg)}
+@media(max-width:820px){
+aside{position:fixed;left:0;top:0;z-index:20;transform:translateX(-100%);transition:.2s;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+aside.open{transform:none}.burger{display:block}main{padding:14px}}
+@media print{aside,.tool,.top button,.burger,td:last-child,th:last-child{display:none!important}.app{display:block}}
+</style></head><body>
+<div class="app"><aside id="sb"></aside><main>
+<div class="top"><button class="burger" onclick="sb.classList.toggle('open')">☰</button><h1 id="ttl"></h1><button onclick="theme()">🌓</button><button onclick="muat()" title="Muat ulang data">🔄</button><button onclick="window.print()">🖨️ Cetak</button><button onclick="localStorage.removeItem('bpd_key');location.reload()">🔒 Keluar</button></div>
+<div id="view"></div></main></div>
+<div id="ld" style="display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.35);align-items:center;justify-content:center;color:#fff;font-weight:600">⏳ Memproses…</div>
+<dialog id="dlg"><form id="frm" method="dialog"></form></dialog>
+<script>
+const J=(a)=>a.map(x=>({k:x[0],l:x[1],t:x[2]||'text',o:x[3]}));
+const M=[
+{g:'Surat-Menyurat',k:'masuk',n:'Agenda Surat Masuk',i:'📥',f:J([['tgl','Tgl Diterima','date'],['no','Nomor Surat'],['asal','Asal Surat'],['hal','Perihal'],['ket','Disposisi / Keterangan','textarea'],['file','Berkas Surat (scan/foto)','file']])},
+{g:'Surat-Menyurat',k:'keluar',n:'Agenda Surat Keluar',i:'📤',f:J([['tgl','Tgl Surat','date'],['no','Nomor Surat'],['tujuan','Tujuan'],['hal','Perihal'],['ket','Keterangan','textarea'],['file','Berkas Surat','file']])},
+{g:'Surat-Menyurat',k:'ekspedisi',n:'Buku Ekspedisi',i:'🚚',f:J([['tgl','Tgl Kirim','date'],['no','Nomor Surat'],['tujuan','Tujuan'],['isi','Isi / Perihal'],['kurir','Pengantar'],['terima','Penerima & Tgl Terima'],['ket','Keterangan','textarea']])},
+{g:'Kesekretariatan',k:'inv',n:'Data Inventaris',i:'🗄️',f:J([['kode','Kode Barang'],['nama','Nama Barang'],['jml','Jumlah','number'],['thn','Tahun Perolehan','number'],['asal','Asal / Sumber'],['kond','Kondisi','select',['Baik','Rusak Ringan','Rusak Berat']],['ket','Keterangan','textarea']])},
+{g:'Kesekretariatan',k:'keu',n:'Laporan Keuangan',i:'💰',f:J([['tgl','Tanggal','date'],['uraian','Uraian'],['jenis','Jenis','select',['Penerimaan','Pengeluaran']],['jml','Jumlah (Rp)','number'],['bukti','No. Bukti / Keterangan']])},
+{g:'Kesekretariatan',k:'tamu',n:'Buku Tamu',i:'🧑‍🤝‍🧑',f:J([['tgl','Tanggal','date'],['nama','Nama Tamu'],['inst','Instansi / Alamat'],['perlu','Keperluan'],['temu','Bertemu Dengan'],['ket','Keterangan','textarea']])},
+{g:'Kelembagaan',k:'anggota',n:'Data Anggota BPD',i:'👥',f:J([['nama','Nama Lengkap'],['nik','NIK'],['jab','Jabatan','select',['Ketua','Wakil Ketua','Sekretaris','Anggota']],['ttl','Tempat, Tgl Lahir'],['pend','Pendidikan / Pekerjaan'],['sk','No. & Tgl SK Pengangkatan'],['henti','Pemberhentian / Riwayat','textarea']])},
+{g:'Kelembagaan',k:'giat',n:'Data Kegiatan',i:'📋',f:J([['tgl','Tanggal','date'],['nama','Nama Kegiatan'],['tempat','Tempat'],['peserta','Jml Peserta','number'],['biaya','Biaya (Rp)','number'],['real','Realisasi / Hasil','textarea']])},
+{g:'Kelembagaan',k:'aspirasi',n:'Aspirasi Masyarakat',i:'📣',f:J([['tgl','Tanggal','date'],['nama','Nama Warga'],['alamat','Dusun / RT-RW'],['isi','Isi Aspirasi','textarea'],['kat','Jenis','select',['Usulan','Keluhan','Masukan']],['stat','Status','select',['Baru','Diproses','Selesai']],['tl','Tindak Lanjut','textarea']])},
+{g:'Rapat',k:'hadir',n:'Daftar Hadir Rapat',i:'✅',f:J([['tgl','Tanggal Rapat','date'],['rapat','Nama / Acara Rapat'],['nama','Nama Peserta'],['jab','Jabatan / Unsur'],['stat','Kehadiran','select',['Hadir','Izin','Sakit','Tanpa Keterangan']]])},
+{g:'Rapat',k:'notulen',n:'Notulen Rapat',i:'📝',f:J([['tgl','Tanggal','date'],['rapat','Agenda / Judul Rapat'],['tempat','Tempat'],['pimp','Pimpinan Rapat'],['bahas','Pembahasan','textarea'],['hasil','Hasil / Kesimpulan','textarea']])},
+{g:'Produk Hukum',k:'sk',n:'Peraturan/Keputusan BPD',i:'⚖️',f:J([['jenis','Jenis','select',['Peraturan BPD','Keputusan BPD']],['no','Nomor & Tahun'],['tgl','Tanggal Ditetapkan','date'],['ttg','Tentang'],['ket','Keterangan','textarea']])},
+{g:'Produk Hukum',k:'perdes',n:'Data Peraturan Desa',i:'📜',f:J([['no','Nomor & Tahun'],['tgl','Tgl Ditetapkan','date'],['ttg','Tentang'],['sepakat','Tgl Kesepakatan BPD–Kades','date'],['undang','Diundangkan (Lembaran Desa)'],['ket','Keterangan','textarea']])},
+{g:'Musyawarah',k:'musdes',n:'Keputusan Musdes',i:'🏛️',f:J([['tgl','Tanggal','date'],['topik','Topik Musdes'],['tempat','Tempat'],['hadir','Jml Peserta','number'],['hasil','Keputusan','textarea']])},
+{g:'Musyawarah',k:'musren',n:'Keputusan Musrenbangdes',i:'🏗️',f:J([['tgl','Tanggal','date'],['thn','Tahun Anggaran','number'],['usul','Usulan Prioritas','textarea'],['pagu','Estimasi Biaya (Rp)','number'],['hasil','Keputusan','textarea']])}
+];
+/* ===== PENGATURAN: tempel URL Web App Apps Script (berakhiran /exec) di bawah ini ===== */
+const API_URL='GANTI_DENGAN_URL_WEB_APP_ANDA';
+/* ======================================================================================= */
+let D={},cur='home',q='',KEY=localStorage.getItem('bpd_key')||'';
+const busy=b=>{document.getElementById('ld').style.display=b?'flex':'none'};
+async function api(action,p){busy(1);try{const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,key:KEY,...p})});const j=await r.json();if(!j.ok)throw new Error(j.error||'Gagal');return j.data}finally{busy(0)}}
+async function muat(){
+ if(!API_URL.startsWith('http')){view.innerHTML='<div class="card emp">⚠️ API_URL belum diisi. Buka file index.html, ganti GANTI_DENGAN_URL_WEB_APP_ANDA dengan URL Web App Apps Script Anda.</div>';return}
+ for(;;){
+  if(!KEY){KEY=(prompt('Masukkan kunci akses BPD:')||'').trim();if(!KEY){view.innerHTML='<div class="card emp">🔒 Kunci akses diperlukan. Muat ulang halaman untuk mencoba lagi.</div>';return}}
+  try{D=await api('all');localStorage.setItem('bpd_key',KEY);break}
+  catch(e){if(/kunci/i.test(e.message)){alert('Kunci akses salah.');KEY='';localStorage.removeItem('bpd_key')}else{view.innerHTML='<div class="card emp">❌ Tidak dapat terhubung ke server: '+esc(e.message)+'</div>';return}}
+ }
+ render()}
+const rows=k=>D[k]||(D[k]=[]);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rp=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
+const tg=s=>s?new Date(s+'T00:00').toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'}):'';
+function theme(){const r=document.documentElement;const d=getComputedStyle(r).colorScheme.includes('dark')||r.dataset.theme=='dark';r.dataset.theme=d?'light':'dark'}
+function nav(){let h='<div class="brand"><div class="logo">🏛️</div><div><b>SIAP-BPD</b><small>Desa Payo Lebar</small></div></div><a data-k="home" class="'+(cur=='home'?'on':'')+'">🏠 Dashboard</a>',g='';
+M.forEach(m=>{if(m.g!=g){g=m.g;h+='<h6>'+g+'</h6>'}h+=`<a data-k="${m.k}" class="${cur==m.k?'on':''}">${m.i} ${m.n}</a>`});
+sb.innerHTML=h;sb.querySelectorAll('a').forEach(a=>a.onclick=()=>{cur=a.dataset.k;q='';sb.classList.remove('open');render();scrollTo(0,0)})}
+function render(){nav();const m=M.find(x=>x.k==cur);ttl.textContent=m?m.i+' '+m.n:'Dashboard';view.innerHTML=m?page(m):home()}
+function home(){
+const tot=M.reduce((s,m)=>s+rows(m.k).length,0),kt=rows('keu');
+const inn=kt.filter(r=>r.jenis=='Penerimaan').reduce((s,r)=>s+ +r.jml,0),out=kt.filter(r=>r.jenis=='Pengeluaran').reduce((s,r)=>s+ +r.jml,0);
+const asp=rows('aspirasi'),baru=asp.filter(r=>r.stat!='Selesai').length;
+let rec=[];M.forEach(m=>rows(m.k).forEach(r=>rec.push({m,r})));rec.sort((a,b)=>b.r.id-a.r.id);
+return `<div class="hero"><h2>Selamat datang, Sekretaris BPD 👋</h2><p>Administrasi BPD Desa Payo Lebar · ${new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</p></div>
+<div class="fin"><div class="card"><div class="l">Total Penerimaan</div><div class="n in">${rp(inn)}</div></div><div class="card"><div class="l">Total Pengeluaran</div><div class="n out">${rp(out)}</div></div><div class="card"><div class="l">Saldo Kas</div><div class="n">${rp(inn-out)}</div></div><div class="card"><div class="l">Aspirasi Belum Selesai</div><div class="n">${baru}</div></div></div>
+<h3>Semua Buku (${tot} catatan)</h3><div class="grid">${M.map(m=>`<div class="card stat" onclick="cur='${m.k}';render()"><div class="i">${m.i}</div><div class="n">${rows(m.k).length}</div><div class="l">${m.n}</div></div>`).join('')}</div>
+<h3>Catatan Terbaru</h3>${rec.length?`<div class="tw"><table><tr><th>Buku</th><th>Ringkasan</th><th>Tanggal</th></tr>${rec.slice(0,6).map(({m,r})=>`<tr><td>${m.i} ${m.n}</td><td>${esc(r.hal||r.nama||r.uraian||r.rapat||r.ttg||r.topik||r.usul||r.isi||'-')}</td><td>${tg(r.tgl)}</td></tr>`).join('')}</table></div>`:'<div class="card emp">Belum ada catatan. Pilih salah satu buku di menu untuk mulai mencatat.</div>'}`}
+function cell(f,v){if(f.t=='date')return tg(v);if(f.t=='number')return v===''||v==null?'':Number(v).toLocaleString('id-ID');if(f.t=='file')return v&&v.name?'📎 '+(v.url?`<a href="${v.url}" target="_blank" rel="noopener">${esc(v.name)}</a>`:esc(v.name)):'';
+if(f.k=='jenis'&&v)return `<span class="tag ${v=='Pengeluaran'?'r':''}">${esc(v)}</span>`;if(f.t=='select'&&v)return `<span class="tag">${esc(v)}</span>`;
+v=esc(v);return v.length>90?v.slice(0,90)+'…':v}
+function page(m){
+const all=rows(m.k),L=all.filter(r=>!q||JSON.stringify(r).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>(b.tgl||'').localeCompare(a.tgl||''));
+let extra='';if(m.k=='keu'){const i=all.filter(r=>r.jenis=='Penerimaan').reduce((s,r)=>s+ +r.jml,0),o=all.filter(r=>r.jenis=='Pengeluaran').reduce((s,r)=>s+ +r.jml,0);extra=`<div class="fin"><div class="card"><div class="l">Penerimaan</div><div class="n in">${rp(i)}</div></div><div class="card"><div class="l">Pengeluaran</div><div class="n out">${rp(o)}</div></div><div class="card"><div class="l">Saldo</div><div class="n">${rp(i-o)}</div></div></div>`}
+return `${extra}<div class="tool"><input placeholder="🔍 Cari di ${m.n}…" value="${esc(q)}" oninput="q=this.value;clearTimeout(window.t);window.t=setTimeout(()=>{render();const i=document.querySelector('.tool input');i.focus();i.setSelectionRange(q.length,q.length)},250)"><button class="pri" onclick="openForm('${m.k}')">＋ Tambah</button></div>
+<div class="tw">${L.length?`<table><tr><th>No</th>${m.f.map(f=>`<th>${f.l}</th>`).join('')}<th></th></tr>${L.map((r,i)=>`<tr><td>${i+1}</td>${m.f.map(f=>`<td>${cell(f,r[f.k])}</td>`).join('')}<td style="white-space:nowrap"><button class="sm" onclick="openForm('${m.k}',${r.id})">✏️</button> <button class="sm del" onclick="rm('${m.k}',${r.id})">🗑️</button></td></tr>`).join('')}</table>`:`<div class="emp">${all.length?'Tidak ada hasil pencarian.':'Belum ada data. Klik “Tambah” untuk mencatat.'}</div>`}</div>`}
+function openForm(k,id){
+const m=M.find(x=>x.k==k),r=id?rows(k).find(x=>x.id==id):{};
+frm.innerHTML=`<h3>${id?'Ubah':'Tambah'} · ${m.n}</h3>`+m.f.map(f=>{const v=r[f.k]??(f.t=='date'&&!id?new Date().toISOString().slice(0,10):'');
+let c=f.t=='textarea'?`<textarea name="${f.k}" rows="3">${esc(v)}</textarea>`:f.t=='select'?`<select name="${f.k}">${f.o.map(o=>`<option ${o==v?'selected':''}>${o}</option>`).join('')}</select>`:f.t=='file'?`<input type="file" name="${f.k}" accept="image/*,.pdf">${v&&v.name?'<small>Berkas saat ini: '+esc(v.name)+'</small>':''}`:`<input type="${f.t}" name="${f.k}" value="${esc(v)}">`;
+return `<div><label>${f.l}</label>${c}</div>`}).join('')+`<div class="act"><button type="button" onclick="dlg.close()">Batal</button><button class="pri" type="submit">Simpan</button></div>`;
+frm.onsubmit=async e=>{e.preventDefault();const fd=new FormData(frm),o=id?{...r}:{id:String(Date.now())},fl={};
+for(const f of m.f){if(f.t=='file'){const x=fd.get(f.k);if(x&&x.size){if(x.size>5e6){alert('Berkas '+x.name+' lebih dari 5 MB, tidak diunggah.');continue}fl[f.k]={name:x.name,mime:x.type,b64:await new Promise(s=>{const y=new FileReader();y.onload=()=>s(y.result.split(',')[1]);y.readAsDataURL(x)})}}}else o[f.k]=fd.get(f.k)}
+o._files=fl;
+try{const sv=await api('save',{k,row:o});const a=rows(k),i=a.findIndex(z=>z.id==sv.id);i<0?a.push(sv):a[i]=sv;dlg.close();render()}catch(er){alert('Gagal menyimpan: '+er.message)}};
+dlg.showModal()}
+async function rm(k,id){if(!confirm('Hapus catatan ini?'))return;try{await api('delete',{k,id});D[k]=rows(k).filter(r=>r.id!=id);render()}catch(e){alert('Gagal menghapus: '+e.message)}}
+render();muat();
+</script></body></html>
